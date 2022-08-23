@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="login_now">Login now</string>
+    <string name="create_account">create account</string>
+    <string name="password">password</string>
+    <string name="header">header</string>
+    <string name="our_instructions">Our instructions</string>
+    <string name="when_you_make_an_order_you_must_wait_5_days_for_delivery_and_our_only_payment_method_is_cash_on_delivery">When you make an order you must wait 5 days for delivery and our only payment method is cash on delivery</string>
+    <string name="todo">TODO</string>
+    <string name="next">next</string>
+    <string name="welcome_to_our_shop">Welcome to our Shop</string>
+    <string name="hi_there_take_a_look_in_our_awesome_store_we_have_big_sales_all_time_have_a_good_day">hi there, take a look in our awesome store we have big sales all time , have a good day :)</string>
+    <string name="welcom">welcom</string>
+    <string name="name">name</string>
+    <string name="company">company</string>
+    <string name="size">size</string>
+    <string name="description">description</string>
+    <string name="add_shoe">Add Shoe</string>
+    <string name="save">save</string>
+    <string name="cancel">cancel</string>
+</resources>

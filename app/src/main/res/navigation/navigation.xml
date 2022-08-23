@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.udacity.shoestore.screens.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_onboardwelcome"
+            app:destination="@id/onboardwelcome" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardwelcome"
+        android:name="com.udacity.shoestore.screens.onboardwelcome"
+        android:label="fragment_onboardwelcome"
+        tools:layout="@layout/fragment_onboardwelcome" >
+        <action
+            android:id="@+id/action_onboardwelcome_to_onboardinstructions"
+            app:destination="@id/onboardinstructions" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardinstructions"
+        android:name="com.udacity.shoestore.screens.onboardinstructions"
+        android:label="onboardinstructions" >
+        <action
+            android:id="@+id/action_onboardinstructions_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.udacity.shoestore.screens.home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_addshoe2"
+            app:destination="@id/addshoe2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addshoe2"
+        android:name="com.udacity.shoestore.screens.Addshoe"
+        android:label="Addshoe" />
+</navigation>
