@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentOnboardinstructionsBinding
+import com.udacity.shoestore.databinding.FragmentOnboardwelcomeBinding
 
 class onboardinstructions : Fragment() {
 
@@ -13,8 +16,12 @@ class onboardinstructions : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_onboardinstructions, container, false)
+        val binding: FragmentOnboardinstructionsBinding = FragmentOnboardinstructionsBinding.inflate(inflater,container,false)
+        binding.btnnext.setOnClickListener{v->
+            Navigation.findNavController(v).navigate(R.id.action_onboardinstructions_to_home2)
+        }
+
+        return binding.root
     }
 
 

@@ -34,7 +34,7 @@
             android:layout_height="300dp"
             android:layout_margin="10dp"
             android:contentDescription="@string/welcom"
-            tools:src="@drawable/images" />
+            android:src="@drawable/images" />
 
     </LinearLayout>
 

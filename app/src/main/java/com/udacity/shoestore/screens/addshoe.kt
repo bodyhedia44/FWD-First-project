@@ -5,18 +5,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import android.widget.LinearLayout
+import android.widget.ScrollView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.udacity.shoestore.R
-
+import com.udacity.shoestore.databinding.FragmentAddshoeBinding
+import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.viewmodels.GameViewModel
 
 
 class Addshoe : Fragment() {
-
+    private lateinit var viewModel:GameViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_addshoe, container, false)
+        val binding: FragmentAddshoeBinding = FragmentAddshoeBinding.inflate(inflater,container,false)
+
+        binding.btnsave.setOnClickListener{
+            val name=binding.txtname.text.toString()
+            val company=binding.txtcompany.text.toString()
+            val description=binding.txtcompany.text.toString()
+            val size=binding.txtnum.text.toString()
+
+            val s=Shoe(name = name, size = size, company = company,description=description)
+            viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
+            viewModel.additem(s)
+            Navigation.findNavController(it).navigate(R.id.action_addshoe_to_home2)
+        }
+        binding.btnsave.setOnClickListener{
+            Navigation.findNavController(it).popBackStack()
+        }
+        return binding.root
     }
 }
