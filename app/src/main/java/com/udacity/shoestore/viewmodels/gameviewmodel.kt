@@ -7,13 +7,16 @@ import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
 class GameViewModel: ViewModel() {
-    init {
-        Timber.d("i am here")
-    }
+
     private val _shoes = MutableLiveData<MutableList<Shoe>>()
     val shoes: LiveData<MutableList<Shoe>>
         get() = _shoes
 
+    val name = MutableLiveData<String>()
+
+       init {
+        Timber.d("i am here")
+    }
     fun additem(shoe: Shoe) {
         val s = mutableListOf<Shoe>()
 
@@ -24,4 +27,5 @@ class GameViewModel: ViewModel() {
         _shoes.value=s
         Timber.d("this value ${_shoes.value}")
     }
+
 }

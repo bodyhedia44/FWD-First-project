@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ScrollView
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
@@ -22,6 +21,8 @@ class Addshoe : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentAddshoeBinding = FragmentAddshoeBinding.inflate(inflater,container,false)
+        viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
+
 
         binding.btnsave.setOnClickListener{
             val name=binding.txtname.text.toString()
@@ -30,11 +31,10 @@ class Addshoe : Fragment() {
             val size=binding.txtnum.text.toString()
 
             val s=Shoe(name = name, size = size, company = company,description=description)
-            viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
             viewModel.additem(s)
             Navigation.findNavController(it).navigate(R.id.action_addshoe_to_home2)
         }
-        binding.btnsave.setOnClickListener{
+        binding.btncancel.setOnClickListener{
             Navigation.findNavController(it).popBackStack()
         }
         return binding.root

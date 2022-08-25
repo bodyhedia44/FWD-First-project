@@ -34,6 +34,8 @@ class home : Fragment() ,MenuProvider{
         val binding:FragmentHomeBinding=FragmentHomeBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
         val myLayout: LinearLayout = binding.layout
+        binding.viewmodel=viewModel
+        binding.lifecycleOwner=this
 
         viewModel.shoes.observe(viewLifecycleOwner) {
             Timber.d("in my ")
@@ -50,7 +52,6 @@ class home : Fragment() ,MenuProvider{
 
 
         binding.floatingActionButton.setOnClickListener{v->
-
             Navigation.findNavController(v).navigate(R.id.action_home2_to_addshoe)}
 
 
