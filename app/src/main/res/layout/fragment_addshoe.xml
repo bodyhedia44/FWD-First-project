@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--    With Linear Layout It's much easier to change position of elements-->
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".screens.addshoe">
+        <variable
+            name="viewmodel"
+            type="com.udacity.shoestore.viewmodels.GameViewModel" />
+    </data>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,6 +39,7 @@
 
                 <EditText
                     android:id="@+id/txtname"
+                    android:text="@={viewmodel.name}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -63,6 +65,7 @@
 
                 <EditText
                     android:id="@+id/txtcompany"
+                    android:text="@={viewmodel.company}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -88,6 +91,8 @@
 
                 <EditText
                     android:id="@+id/txtnum"
+                    android:text="@={viewmodel.size}"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -114,6 +119,7 @@
 
                 <EditText
                     android:id="@+id/lbldesc"
+                    android:text="@={viewmodel.desc}"
                     android:layout_width="0dp"
                     android:layout_height="180dp"
                     android:layout_margin="10dp"
@@ -137,6 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
+                    android:onClick="@{()-> viewmodel.additem()}"
                     android:background="#4CAF50"
                     android:text="@string/save" />
 
@@ -151,5 +158,4 @@
             </LinearLayout>
 
         </LinearLayout>
-    </FrameLayout>
 </layout>

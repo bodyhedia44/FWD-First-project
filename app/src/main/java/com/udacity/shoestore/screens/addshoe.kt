@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LifecycleOwner
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -22,17 +23,14 @@ class Addshoe : Fragment() {
     ): View? {
         val binding: FragmentAddshoeBinding = FragmentAddshoeBinding.inflate(inflater,container,false)
         viewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
+        binding.viewmodel=viewModel
+        binding.lifecycleOwner=this
 
-
-        binding.btnsave.setOnClickListener{
-            val name=binding.txtname.text.toString()
-            val company=binding.txtcompany.text.toString()
-            val description=binding.txtcompany.text.toString()
-            val size=binding.txtnum.text.toString()
-
-            val s=Shoe(name = name, size = size, company = company,description=description)
-            viewModel.additem(s)
-            Navigation.findNavController(it).navigate(R.id.action_addshoe_to_home2)
+        viewModel.nav.observe(viewLifecycleOwner) {
+            if (it) {
+                Navigation.findNavController(binding.root).navigate(R.id.action_addshoe_to_home2)
+                viewModel.onnav()
+            }
         }
         binding.btncancel.setOnClickListener{
             Navigation.findNavController(it).popBackStack()
